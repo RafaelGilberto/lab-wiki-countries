@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 export function CountryDetails(props) {
@@ -8,15 +7,18 @@ export function CountryDetails(props) {
   })[0];
 
   return (
-    <>
+    <div class="position-absolute top-70 start-50 text-bg-light">
       <div>{info.name.common}</div>
       <div>
         <p>Capital : {info.capital}</p>
         <p>Area : {info.area} km^2</p>
-        {info.borders.map((currentBorder) => {
-          <p>{currentBorder}</p>;
-        })}
+        <p>
+          Borders:{' '}
+          {info.borders.map((currentBorder) => {
+            return <span>{currentBorder + ' '}</span>;
+          })}{' '}
+        </p>
       </div>
-    </>
+    </div>
   );
 }
