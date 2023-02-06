@@ -1,15 +1,18 @@
-import { Link } from 'react-router-dom';
-
 export function CountriesList(props) {
   return (
-    <div className="flex-md-column">
-      {props.countries.map((currentElement) => {
-        return (
-          <Link to={`/${currentElement.alpha3Code}`}>
-            <div>{currentElement.name.common}</div>
-          </Link>
-        );
-      })}{' '}
+    <div className="col-5">
+      <div className="list-group">
+        {props.countries.map((currentElement) => {
+          return (
+            <a
+              class="list-group-item list-group-item-action"
+              href={`/${currentElement.alpha3Code}`}
+            >
+              {currentElement.name.common}
+            </a>
+          );
+        })}
+      </div>
     </div>
   );
 }

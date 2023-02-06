@@ -2,8 +2,12 @@
 
 export function NavBar() {
   return (
-    <nav className="navbar bg-primary" data-bs-theme="dark">
-      <div className="container-fluid navbar-brand">Lab - WikiCountries</div>
+    <nav className="navbar navbar-dark bg-primary mb-3">
+      <div class="container">
+        <a className="navbar-brand" href="/">
+          Lab - WikiCountries
+        </a>
+      </div>
     </nav>
   );
 }

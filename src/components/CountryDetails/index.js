@@ -7,18 +7,40 @@ export function CountryDetails(props) {
   })[0];
 
   return (
-    <div class="position-absolute top-70 start-50 text-bg-light">
-      <div>{info.name.common}</div>
-      <div>
-        <p>Capital : {info.capital}</p>
-        <p>Area : {info.area} km^2</p>
-        <p>
-          Borders:{' '}
-          {info.borders.map((currentBorder) => {
-            return <span>{currentBorder + ' '}</span>;
-          })}{' '}
-        </p>
-      </div>
+    <div className="col-7">
+      <h1>{info.name.common}</h1>
+      <table className="table">
+        <thead></thead>
+        <tbody>
+          <tr>
+            <td>Capital : </td>
+            <td>{info.capital}</td>
+          </tr>
+          <tr>
+            <td>Area :</td>
+            <td>
+              {info.area} km <sup>2</sup>
+            </td>
+          </tr>
+          <tr>
+            <td>Borders:</td>
+            <td>
+              <ul>
+                {info.borders.map((currentBorder) => {
+                  const countryName = props.countries.filter((current) => {
+                    return current.alpha3Code === currentBorder;
+                  })[0];
+                  return (
+                    <li>
+                      <a href="/AND">{countryName.name.common + ' '}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
